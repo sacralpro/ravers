@@ -26,9 +26,8 @@ const AudioPlayer = () => {
 
     // Add event listeners for all audio elements.  This is more efficient than adding and removing listeners repeatedly.
     const handleTimeUpdate = (index) => () => {
-      setCurrentTime(audioRefs.current[index].currentTime);
+      setCurrentTime(audioRefs.current[index]?.currentTime || 0); // Added optional chaining and default value
     };
-
     const handleAudioError = (index) => (e) => {
       console.error(`Error in audio track ${index + 1}:`, e);
     };

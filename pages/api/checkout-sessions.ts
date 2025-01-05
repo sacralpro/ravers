@@ -25,6 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         currency: "usd",
                         product_data: {
                             name: item.name,
+                            description: item.description, // Add description to product data
                         },
                         unit_amount: item.price * 100, // Конвертируем доллары в центы
                     },

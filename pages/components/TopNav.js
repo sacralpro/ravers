@@ -133,11 +133,16 @@ const TopNav = ({ setMenuOpen }) => {
         style={{ backgroundColor: menuOpen ? 'rgba(255, 192, 203, 0.8)' : 'transparent' }}
       >
         <div className="flex justify-between items-center h-16 ">
-          <div className="flex items-center">
-            <img src="/images/st.png" alt="SACRAL TRACK" className="h-6 w-6 hidden md:block" />
+        <div className="flex items-center">
+        <a className="cursor-pointer" href="https://sacraltrack.store">
+          <div className="flex items-center"> {/* Wrap logo and text in a div */}
+            <img src="/images/st.png" alt="SACRAL TRACK" className="h-6 w-6 hidden md:block mr-2" />
             <span className="text-white ml-2 hidden md:block">SACRAL TRACK</span>
             <img src="/images/st.png" alt="SACRAL TRACK" className="h-6 w-6 md:hidden" />
-          </div>
+          </div> {/* End of wrapping div */}
+        </a>
+      </div>
+
           <div className="text-white">
             <p className="text-center">
               SACRAL DJ - RAVERS {isMobile ? '' : '(MUSIC ALBUM 2025)'}
@@ -210,11 +215,12 @@ const TopNav = ({ setMenuOpen }) => {
                   <motion.div
                     className="relative flex flex-col items-center justify-center h-full w-full text-white text-[4rem] z-50 pl-8"
                   >
-                   <motion.ul className="flex flex-col space-y-4 z-50">
+                   <motion.ul className="flex flex-col space-y-12 z-50">
   {['ABOUT THE ALBUM', 'BOOK A DJ-GIG', 'BIOGRAPHY'].map((item, index) => (
     <motion.li
       key={item}
-      className="cursor-pointer"
+      
+      className="cursor-pointer text-6xl md:text-4xl lg:text-6xl" // Adjust sizes as needed
       variants={menuItemVariants}
       initial="hidden"
       animate="visible"

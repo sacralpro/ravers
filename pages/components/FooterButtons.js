@@ -8,39 +8,47 @@ const FooterButtons = () => {
   const [buttonPosition, setButtonPosition] = useState({ top: '40%', left: 'auto' });
   const buttonRef = useRef(null);
 
+  const handlePayment = async () => {
+    try {
+      const stripe = await getStripe();
 
-  // Handle payment using Stripe Checkout
-  const handlePayment = async (cartItems) => {
-      try {
-          const stripe = await getStripe();
-          const cartItems = [ // Example cart items. Replace with your actual cart data.
-              { name: "Album", price: 18, quantity: 1 },
-          ];
+      // UPDATED: Include descriptions in cart items
+      const cartItems = [
+        {
+          name: "Album",
+          price: 18,
+          quantity: 1,
+          description: "This package includes 8 full-length album WAV tracks produced by Sacral DJ.", // Add description
+        //  imageUrl: "/images/artwork.png", // Path to your album cover image
 
-          console.log('cartItems:', cartItems);
+        },
+      ];
 
-          const response = await fetch('/api/checkout-sessions', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ cartItems }),
-          });
+      console.log('cartItems:', cartItems);
 
-          if (!response.ok) {
-              const errorData = await response.json();
-              const errorMessage = errorData.error || `HTTP error! status: ${response.status}`;
-              console.error("Error:", errorMessage);
-              throw new Error(errorMessage);
-          }
+      const response = await fetch('/api/checkout-sessions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cartItems }),
+      });
 
-          const { sessionId } = await response.json();
-          const result = await stripe.redirectToCheckout({ sessionId });
-          if (result.error) {
-              throw new Error(`Stripe error: ${result.error.message}`);
-          }
-      } catch (error) {
-          console.error('Payment error:', error);
-          alert('Payment failed. See console for details.'); //Improved user message
+      if (!response.ok) {
+        const errorData = await response.json();
+        const errorMessage = errorData.error || `HTTP error! status: ${response.status}`;
+        console.error("Error:", errorMessage);
+        throw new Error(errorMessage);
       }
+
+      const { sessionId } = await response.json();
+      const result = await stripe.redirectToCheckout({ sessionId });
+      if (result.error) {
+        throw new Error(`Stripe error: ${result.error.message}`);
+      }
+    } catch (error) {
+      console.error('Payment error:', error);
+      alert('Payment failed. Please check the console for details.');
+    }
+  
   };
 
 

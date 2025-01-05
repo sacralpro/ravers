@@ -16,13 +16,20 @@
 
 
 
-html,
+
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+
+html, body {
+  height: 100%;
+  margin: 0; /* Ensure no default margins */
+  overflow: hidden; /* Prevent scrolling on body and html */
+}
+
 
 a {
   color: inherit;
@@ -115,5 +122,5 @@ button1 {
 }
 
 body {
-  font-family: 'Gotham Pro', sans-serif; /* Используйте шрифт Gotham Pro по умолчанию */
+  font-family: 'Gotham Pro', sans-serif;
 }
