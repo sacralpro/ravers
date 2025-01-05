@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+canvas {
+  display:block; width:100%; height:100vh; cursor: grab;
+}
+
+button1 {
+  /* Center button to screen */
+  position: absolute;
+  top: 50%;
+  z-index: 11;
+  right: 100px; /* distance from right edge */
+  transform: translate(-50%, -50%);
+  /* Finish center */
+  background: #eef835; /* yellow background */
+  border: none; /* no border */
+  width: 88px; /* width of the button */
+  height: 88px; /* height of the button */
+  display: flex; /* use flexbox */
+  align-items: center; /* center content vertically */
+  justify-content: center; /* center content horizontally */
+  
+  color: #FFF; /* text color */
+  text-transform: uppercase; /* upper case text */
+  letter-spacing: 4px; /* spacing between letters */
+  border-radius: 50%; /* circular button */
+  animation: pulse 2s linear infinite; /* pulse animation */
+}
+
+
+
+@keyframes pulse {
+  0%{
+      box-shadow: 0 0 0 0 rgba(245, 52, 181, 0.8), 0 0 0 0 rgba(201,8,95,0.5)
+  }
+  40%{
+      box-shadow: 0 0 0 70px rgba(255, 30, 251, 0), 0 0 0 30px rgba(201,8,95,0)
+  }
+  80%{
+      box-shadow: 0 0 0 70px rgba(201,8,95,0), 0 0 0 30px rgba(201,8,95,0)
+  }
+  100%{
+      box-shadow: 0 0 0 0 rgba(201,8,95,0), 0 0 0 40px rgba(201,8,95,0)
+  }
+}
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes pulsate {
+  from {
+      transform: scale(1);
+      box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+  }
+  to {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+  }
+}
+
+.blur {
+  backdrop-filter: blur(5px); /* Adjust blur strength as needed */
+}
+
+
+@font-face {
+  @font-face {
+    font-family: 'Gotham Pro';
+    src: url('/fonts/GothamPro.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+body {
+  font-family: 'Gotham Pro', sans-serif; /* Используйте шрифт Gotham Pro по умолчанию */
+}
