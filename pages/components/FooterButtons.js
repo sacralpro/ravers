@@ -91,7 +91,7 @@ const FooterButtons = () => {
       style={{ zIndex: 12 }}
     >
      <a href="https://idalllab.webflow.io/" target="_blank" rel="noopener noreferrer"> {/* Replace with your label URL */}
-          <div className="relative w-12 h-12 rounded-full mr-14 mb-[60px]">
+          <div className="relative w-12 h-12 rounded-full mr-12 mb-[60px]">
             <img
               src="/images/idall.png"
               alt="Your Logo"
@@ -117,7 +117,7 @@ const FooterButtons = () => {
       <button1
                 onClick={handlePayment} // Call the Stripe payment method on click
 
-        className={`fixed items-center top-[40%] rounded-full cursor-pointer bg-yellow-400/95 text-white  mr-4 shadow-lg shadow-yellow-400/30  ${
+        className={`fixed items-center md:top-[40%] top-[60%] rounded-full cursor-pointer bg-yellow-400/95 text-white  mr-4 shadow-lg shadow-yellow-400/30  ${
           pulsate ? "scale-110" : "scale-100"
         }`}
       >          

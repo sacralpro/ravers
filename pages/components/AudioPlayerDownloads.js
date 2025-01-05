@@ -11,11 +11,11 @@ const AudioPlayerDownloads = () => {
     const tracks = [
         { id: 1, src: "/timeless.mp3", downloadSrc: "/timeless.wav", title: "Timeless" },
         { id: 2, src: "/Ra.mp3", downloadSrc: "/Ra.wav", title: "Ra" },
-        { id: 3, src: "/tosoul.mp3", downloadSrc: "/tosoul.wav", title: "toSoul" },
-        { id: 4, src: "/extraordinary.mp3", downloadSrc: "/extraordinary.wav", title: "чцExtraordinary" },
-        { id: 5, src: "/dao.mp3", downloadSrc: "/Sacral_dJ_Dao(Original).wav", title: "Dao" },
+        { id: 3, src: "/toSoul.mp3", downloadSrc: "/tosoul.wav", title: "toSoul" },
+        { id: 4, src: "/Extraordinary.mp3", downloadSrc: "/extraordinary.wav", title: "чцExtraordinary" },
+        { id: 5, src: "/Dao.mp3", downloadSrc: "/Sacral_dJ_Dao(Original).wav", title: "Dao" },
         { id: 6, src: "/AmBy.mp3", downloadSrc: "/AmBy.wav", title: "AmBy" },
-        { id: 7, src: "/mattery.mp3", downloadSrc: "/mattery.wav", title: "Mattery" },
+        { id: 7, src: "/Mattery.mp3", downloadSrc: "/mattery.wav", title: "Mattery" },
         { id: 8, src: "/WiseLogic(Wiselissa).mp3", downloadSrc: "/WiseLogic(Wiselissa).wav", title: "WiseLogic(Wiselissa)" },
     ];
 

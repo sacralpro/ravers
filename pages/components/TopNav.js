@@ -1,35 +1,28 @@
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'; // Import Framer Motion
+import { motion, AnimatePresence } from 'framer-motion';
 import DOTS from 'vanta/dist/vanta.net.min';
 import * as THREE from 'three';
 
 const TopNav = ({ setMenuOpen }) => {
   const [menuOpen, setMenuOpenState] = useState(false);
   const [showBio, setShowBio] = useState(false);
-  const [showAbout, setShowAbout] = useState(false); // Новое состояние для отображения информации об альбоме
+  const [showAbout, setShowAbout] = useState(false);
   const navRef = useRef(null);
   const vantaRef = useRef(null);
   const [vantaEffect, setVantaEffect] = useState(null);
-  const [isMobile, setIsMobile] = useState(false); // State to track mobile view
-
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Handle window resize event
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
-    // Set initial state
     handleResize();
-
-    // Add event listener on mount
     window.addEventListener('resize', handleResize);
     return () => {
-      // Clean up event listener
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  
 
   useEffect(() => {
     if (menuOpen && vantaRef.current) {
@@ -90,28 +83,33 @@ const TopNav = ({ setMenuOpen }) => {
     hover: { scale: 1.1, transition: { duration: 0.2, ease: 'easeInOut' } },
   };
 
+  const iconVariants = {
+    hover: { scale: 1.2, transition: { duration: 0.2, ease: 'easeInOut' } },
+  };
+
+
   const toggleMenu = () => {
     setMenuOpenState(!menuOpen);
     setMenuOpen(!menuOpen);
-    setShowBio(false); // Закрываем биографию при переключении меню
-    setShowAbout(false); // Закрываем раздел об альбоме
+    setShowBio(false);
+    setShowAbout(false);
   };
 
   const showBiography = () => {
-    setShowBio(true); // Показать биографию
-    setShowAbout(false); // Скрыть раздел об альбоме
-    setMenuOpenState(false); // Скрыть меню
+    setShowBio(true);
+    setShowAbout(false);
+    setMenuOpenState(false);
   };
 
   const showAboutAlbum = () => {
-    setShowAbout(true); // Показать информацию об альбоме
-    setShowBio(false); // Скрыть биографию
-    setMenuOpenState(false); // Скрыть меню
+    setShowAbout(true);
+    setShowBio(false);
+    setMenuOpenState(false);
   };
 
   const backToMenu = () => {
-    setShowBio(false); // Вернуться в меню
-    setShowAbout(false); // Вернуться в меню
+    setShowBio(false);
+    setShowAbout(false);
     setMenuOpen(true);
   };
 
@@ -131,37 +129,21 @@ const TopNav = ({ setMenuOpen }) => {
   return (
     <div className="relative z-1020" ref={navRef}>
       <motion.div
-        className="fixed top-0 left-0 pl-[30px] pr-[46px] w-full z-[2000] bg-transparent transition-colors duration-300"
+        className="fixed top-0 left-0 pl-[30px] pr-[40px] w-full z-[2000] bg-transparent transition-colors duration-300"
         style={{ backgroundColor: menuOpen ? 'rgba(255, 192, 203, 0.8)' : 'transparent' }}
       >
         <div className="flex justify-between items-center h-16 ">
           <div className="flex items-center">
-            {/* Логотип для мобильной версии */}
-            <img 
-              src="/images/st.png" 
-              alt="SACRAL TRACK" 
-              className="h-6 w-6 hidden md:block" // Скрыть на мобильных
-            />
+            <img src="/images/st.png" alt="SACRAL TRACK" className="h-6 w-6 hidden md:block" />
             <span className="text-white ml-2 hidden md:block">SACRAL TRACK</span>
-            {/* Только иконка на мобильной версии */}
-            <img 
-              src="/images/st.png" 
-              alt="SACRAL TRACK" 
-              className="h-6 w-6 md:hidden" // Показать только на мобильных
-            />
+            <img src="/images/st.png" alt="SACRAL TRACK" className="h-6 w-6 md:hidden" />
           </div>
-
-          {/* Заголовок, измененный для мобильного формата */}
           <div className="text-white">
             <p className="text-center">
-            SACRAL DJ - RAVERS {isMobile ? '' : '(MUSIC ALBUM 2025)'}
+              SACRAL DJ - RAVERS {isMobile ? '' : '(MUSIC ALBUM 2025)'}
             </p>
           </div>
-
-          <motion.div
-            className="cursor-pointer"
-            onClick={toggleMenu}
-          >
+          <motion.div className="cursor-pointer" onClick={toggleMenu}>
             <div className={`h-1 w-[40px] bg-white transition duration-300 ${menuOpen ? 'rotate-45 translate-y-[2.5px]' : 'mb-2.5'}`} />
             <div className={`h-1 w-[40px] bg-white transition duration-300 ${menuOpen ? '-rotate-45 -translate-y-[2.5px]' : ''}`} />
           </motion.div>
@@ -175,8 +157,10 @@ const TopNav = ({ setMenuOpen }) => {
               exit={{ opacity: 0 }}
             >
               <h1 className="text-white text-[4rem] mb-8">Biography</h1>
-              <p className="text-white text-center mx-4">
-                Здесь будет биография артиста! Она может содержать информацию о его карьере, достижениях и другой интересной информации.
+              <p className="text-white text-center mx-4 w-[60vw] leading-[1.75rem]">
+                {typewriterEffect(
+                  "Sacral DJ: A sonic architect, Alexandr Shaginov crafts a unique soundscape that transcends genres. Blending techno, electro, hip-hop, and rap, his productions are powerful and otherworldly, transporting listeners to mystical dimensions while simultaneously igniting electrifying dance floors. Each Sacral DJ live performance is a one-of-a-kind experience, enhanced by ultra-modern minimalist visuals and featuring collaborations with diverse artists such as actress Anastasia Vasylieva and yoga master Wiselissa. With over 10 powerful releases already under his belt, including two full albums on IDALL Lab and Sacral Track, he continues to push creative boundaries."
+                )}
               </p>
               <motion.div
                 className="cursor-pointer mt-8"
@@ -184,21 +168,23 @@ const TopNav = ({ setMenuOpen }) => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="h-10 w-10 bg-white flex justify-center items-center rounded-full">
-                  <span className="text-blue-600">&#8592;</span> {/* Стрелочка назад */}
+                <div className="h-10 w-20 flex justify-center items-center rounded-full">
+                  <img src="/images/1.svg" alt="back" className="w-10 h-6" />
                 </div>
               </motion.div>
             </motion.div>
-          ) : showAbout ? ( // Проверка для отображения информации об альбоме
+          ) : showAbout ? (
             <motion.div
               className="fixed top-0 left-0 right-0 bottom-0 bg-blue-600 flex flex-col items-center justify-center z-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <h1 className="text-white text-[4rem] mb-8">About the Album</h1>
-              <p className="text-white text-center mx-4">
-                {typewriterEffect("Это описание альбома с эффектом печатной машинки.")}
+              <h1 className="text-white text-[3rem] mb-8">About the Album</h1>
+              <p className="text-white w-[60vw] text-center mx-4 leading-[1.75rem]">
+                {typewriterEffect(
+                  "\"RAVERS\" is produced for all lovers of electronic music.\nRecorded in the style of high-quality minimal techno with\nelectronic broken beats and featuring vocals by Sasha and Wiselissa, \nit creates masterpieces masterpieces in the minds and hearts \nof listeners and tearing up dance floors of any size.\n\nThe intro track, 'Timeless,' is a rap vibe, as always exploring \nthe transcendent states bordering on a world where the unthinkable is known..."
+                )}
               </p>
               <motion.div
                 className="cursor-pointer mt-8"
@@ -206,8 +192,8 @@ const TopNav = ({ setMenuOpen }) => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="h-10 w-10 bg-white flex justify-center items-center rounded-full">
-                  <span className="text-blue-600">&#8592;</span> {/* Стрелочка назад */}
+                <div className="h-10 w-20 flex justify-center">
+                  <img src="/images/1.svg" alt="back" className="w-10 h-6" />
                 </div>
               </motion.div>
             </motion.div>
@@ -222,28 +208,83 @@ const TopNav = ({ setMenuOpen }) => {
               >
                 <div className="relative h-full">
                   <motion.div
-                    className="relative flex flex-col items-center justify-center h-full w-full text-white text-[4rem] z-50"
+                    className="relative flex flex-col items-center justify-center h-full w-full text-white text-[4rem] z-50 pl-8"
                   >
-                    <motion.ul
-                      className="flex flex-col space-y-4 z-50"
-                    >
-                      {['ABOUT THE ALBUM', 'BOOK A DJ-GIG', 'BIOGRAPHY', 'VIDEO'].map((item, index) => (
-                        <motion.li
-                          key={item}
-                          className="cursor-pointer"
-                          variants={menuItemVariants}
-                          initial="hidden"
-                          animate="visible"
-                          custom={index} // передаем индекс в `custom`
-                          whileHover={{ color: 'pink', scale: 1.1 }} // Задаем эффект на hover
-                          onClick={item === 'BIOGRAPHY' ? showBiography : item === 'ABOUT THE ALBUM' ? showAboutAlbum : toggleMenu}
-                        >
-                          {item}
-                        </motion.li>
+                   <motion.ul className="flex flex-col space-y-4 z-50">
+  {['ABOUT THE ALBUM', 'BOOK A DJ-GIG', 'BIOGRAPHY'].map((item, index) => (
+    <motion.li
+      key={item}
+      className="cursor-pointer"
+      variants={menuItemVariants}
+      initial="hidden"
+      animate="visible"
+      custom={index}
+      whileHover={{ color: 'pink' }}
+      onClick={() => {
+        switch (item) {
+          case 'BIOGRAPHY':
+            showBiography();
+            break;
+          case 'ABOUT THE ALBUM':
+            showAboutAlbum();
+            break;
+          case 'BOOK A DJ-GIG':
+            window.location.href = 'https://t.me/sashaplayra'; // Replace with your actual URL
+            break;
+          default:
+            toggleMenu();
+            break;
+        }
+      }}
+    >
+      {item}
+    </motion.li>
+
+
                       ))}
+                      <motion.li
+                        key="VIDEO"
+                        className="cursor-pointer flex items-center space-x-6"
+                        variants={menuItemVariants}
+                        initial="hidden"
+                        animate="visible"
+                        custom={3}
+                        whileHover={{ color: 'pink' }}
+                      >
+                        <motion.a
+                          href="https://www.instagram.com/__sacral__/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cursor-pointer"
+                          variants={iconVariants}
+                          whileHover="hover"
+                        >
+                          <img src="/images/Ins.svg" alt="Instagram" className="w-10 h-10" />
+                        </motion.a>
+                        <motion.a
+                          href="https://www.youtube.com/watch?v=c3oH1YiMUp4"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cursor-pointer"
+                          variants={iconVariants}
+                          whileHover="hover"
+                        >
+                          <img src="/images/You.svg" alt="YouTube" className="w-10 h-10" />
+                        </motion.a>
+                        <motion.a
+                          href="https://t.me/sashaplayra"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cursor-pointer"
+                          variants={iconVariants}
+                          whileHover="hover"
+                        >
+                          <img src="/images/Tel.svg" alt="Telephone" className="w-10 h-10" />
+                        </motion.a>
+                      </motion.li>
                     </motion.ul>
                     <motion.div
-                      className="absolute top-4 right-4 cursor-pointer z-50 mt-3 mr-3"
+                      className="absolute top-3 right-8 cursor-pointer z-50 mt-5"
                       variants={closeButtonVariants}
                       whileHover="hover"
                       animate={menuOpen ? 'open' : 'closed'}
