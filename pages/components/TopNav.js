@@ -148,7 +148,7 @@ const TopNav = ({ setMenuOpen }) => {
               SACRAL DJ - RAVERS {isMobile ? '' : '(MUSIC ALBUM 2025)'}
             </p>
           </div>
-          <motion.div className="cursor-pointer" onClick={toggleMenu}>
+          <motion.div className="cursor-pointer " onClick={toggleMenu}>
             <div className={`h-1 w-[36px] bg-white transition duration-300 ${menuOpen ? 'rotate-45 translate-y-[2.5px]' : 'mb-2.5'}`} />
             <div className={`h-1 w-[36px] bg-white transition duration-300 ${menuOpen ? '-rotate-45 -translate-y-[2.5px]' : ''}`} />
           </motion.div>
@@ -164,7 +164,7 @@ const TopNav = ({ setMenuOpen }) => {
               <h1 className="text-white text-[4rem] mb-8">Biography</h1>
               <p className="text-white text-center mx-4 w-[60vw] leading-[1.75rem]">
                 {typewriterEffect(
-                  "Sacral DJ: A sonic architect, Alexandr Shaginov crafts a unique soundscape that transcends genres. Blending techno, electro, hip-hop, and rap, his productions are powerful and otherworldly, transporting listeners to mystical dimensions while simultaneously igniting electrifying dance floors. Each Sacral DJ live performance is a one-of-a-kind experience, enhanced by ultra-modern minimalist visuals and featuring collaborations with diverse artists such as actress Anastasia Vasylieva and yoga master Wiselissa. With over 10 powerful releases already under his belt, including two full albums on IDALL Lab and Sacral Track, he continues to push creative boundaries."
+                  "Sacral DJ: A sonic architect, Alexandr Shaginov crafts a unique soundscape that transcends genres. Blending techno, electro, hip-hop, and rap, his productions are powerful and otherworldly. Each Sacral DJ live performance is a one-of-a-kind experience, enhanced by ultra-modern minimalist visuals and featuring collaborations with diverse artists such as actress Anastasia Vasylieva and yoga master Wiselissa."
                 )}
               </p>
               <motion.div
