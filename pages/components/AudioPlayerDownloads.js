@@ -9,14 +9,14 @@ const AudioPlayerDownloads = () => {
 
     // Обновленный массив треков с указанием .wav для загрузки и .mp3 для воспроизведения
     const tracks = [
-        { id: 1, src: "/timeless.mp3", downloadSrc: "/timeless.wav", title: "Timeless" },
-        { id: 2, src: "/Ra.mp3", downloadSrc: "/Ra.wav", title: "Ra" },
-        { id: 3, src: "/toSoul.mp3", downloadSrc: "/tosoul.wav", title: "toSoul" },
-        { id: 4, src: "/Extraordinary.mp3", downloadSrc: "/extraordinary.wav", title: "чцExtraordinary" },
+        { id: 1, src: "/Timeless.mp3", downloadSrc: "/Sacral_dJ_Timeless.wav", title: "Timeless" },
+        { id: 2, src: "/Ra.mp3", downloadSrc: "/Sacral_dJ_Ra.wav", title: "Ra" },
+        { id: 3, src: "/toSoul.mp3", downloadSrc: "/Sacral_dJ_toSoul.wav", title: "toSoul" },
+        { id: 4, src: "/Extraordinary.mp3", downloadSrc: "/Sacral_dJ_Extraordinary.wav", title: "Extraordinary" },
         { id: 5, src: "/Dao.mp3", downloadSrc: "/Sacral_dJ_Dao(Original).wav", title: "Dao" },
-        { id: 6, src: "/AmBy.mp3", downloadSrc: "/AmBy.wav", title: "AmBy" },
-        { id: 7, src: "/Mattery.mp3", downloadSrc: "/mattery.wav", title: "Mattery" },
-        { id: 8, src: "/WiseLogic(Wiselissa).mp3", downloadSrc: "/WiseLogic(Wiselissa).wav", title: "WiseLogic(Wiselissa)" },
+        { id: 6, src: "/AmBy.mp3", downloadSrc: "/Sacral_dJ_AmBy.wav", title: "AmBy" },
+        { id: 7, src: "/Mattery.mp3", downloadSrc: "/Sacral_dJ_Mattery.wav", title: "Mattery" },
+        { id: 8, src: "/WiseLogic(Wiselissa).mp3", downloadSrc: "/Sacral_dJ_WiseLogic(Wiselissa).wav", title: "WiseLogic(Wiselissa)" },
     ];
 
     useEffect(() => {

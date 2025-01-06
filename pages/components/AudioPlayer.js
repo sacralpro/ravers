@@ -144,7 +144,7 @@ const AudioPlayer = () => {
           {playingTrackIndex === null ? <FaPlay /> : <FaPause />}
         </button>
 
-        <div className="relative flex flex-col md:flex-row md:items-center md:justify-center md:ml-0 ml-[-120px] w-full mb-4">
+        <div className="relative flex flex-col md:flex-row md:items-center md:justify-center md:ml-0 ml-[-70px] md:mt-0 mt-[80px] w-full mb-4">
           {tracks.map((track, index) => (
             <div
               key={track.id}

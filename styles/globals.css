@@ -110,15 +110,13 @@ button1 {
   backdrop-filter: blur(5px); /* Adjust blur strength as needed */
 }
 
-
 @font-face {
-  @font-face {
-    font-family: 'Gotham Pro';
-    src: url('/fonts/GothamPro.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
+  font-family: 'Gotham Pro';
+  src: url('/GothamPro-Medium.woff') format('woff2'), /* Добавьте woff2 для лучшей совместимости */
+       url('/GothamPro-Medium.woff') format('woff'); /*  Добавьте проверку на существование файла */
+  font-weight: 400;
+  font-style: medium;
+  font-display: swap; /* Важно для более быстрого рендеринга */
 }
 
 body {

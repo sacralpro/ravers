@@ -149,8 +149,8 @@ const TopNav = ({ setMenuOpen }) => {
             </p>
           </div>
           <motion.div className="cursor-pointer" onClick={toggleMenu}>
-            <div className={`h-1 w-[40px] bg-white transition duration-300 ${menuOpen ? 'rotate-45 translate-y-[2.5px]' : 'mb-2.5'}`} />
-            <div className={`h-1 w-[40px] bg-white transition duration-300 ${menuOpen ? '-rotate-45 -translate-y-[2.5px]' : ''}`} />
+            <div className={`h-1 w-[36px] bg-white transition duration-300 ${menuOpen ? 'rotate-45 translate-y-[2.5px]' : 'mb-2.5'}`} />
+            <div className={`h-1 w-[36px] bg-white transition duration-300 ${menuOpen ? '-rotate-45 -translate-y-[2.5px]' : ''}`} />
           </motion.div>
         </div>
         <AnimatePresence>
@@ -298,10 +298,10 @@ const TopNav = ({ setMenuOpen }) => {
                     >
                       <div className="flex flex-col justify-center items-center">
                         <div
-                          className={`h-1 w-[40px] bg-white transition duration-300 ${menuOpen ? 'rotate-45 translate-y-0.5' : ''}`}
+                          className={`h-1 w-[36px] bg-white transition duration-300 ${menuOpen ? 'rotate-45 translate-y-0.5' : ''}`}
                         />
                         <div
-                          className={`h-1 w-[40px] bg-white transition duration-300 ${menuOpen ? '-rotate-45 -translate-y-0.5' : 'mt-1'}`}
+                          className={`h-1 w-[36px] bg-white transition duration-300 ${menuOpen ? '-rotate-45 -translate-y-0.5' : 'mt-1'}`}
                         />
                       </div>
                     </motion.div>

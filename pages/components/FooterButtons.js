@@ -125,7 +125,7 @@ const FooterButtons = () => {
       <button1
                 onClick={handlePayment} // Call the Stripe payment method on click
 
-        className={`fixed items-center md:top-[40%] top-[60%] rounded-full cursor-pointer bg-yellow-400/95 text-white  mr-4 shadow-lg shadow-yellow-400/30  ${
+        className={`fixed items-center md:top-[40%] top-[55%] rounded-full cursor-pointer bg-yellow-400/95 text-white  md:mr-4 mr-2 shadow-lg shadow-yellow-400/30  ${
           pulsate ? "scale-110" : "scale-100"
         }`}
       >          

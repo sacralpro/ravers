@@ -9,6 +9,8 @@ import AudioPlayer from "./components/AudioPlayer";
 import YandexMetrika from "./components/YandexMetrika";
 
 const ThreeJSCanvas = dynamic(() => import("../utils/ThreeJSCanvas"), { ssr: false });
+const analyticsEnabled = !!(process.env.NODE_ENV === "production");
+
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -90,14 +92,14 @@ export default function Home() {
             hidden: { y: 50, opacity: 0 },
             visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeInOut", delay: 1.6 } },
           }}
-          className="w-full flex justify-center items-end p-4"
+          className="w-full flex justify-center items-end p-4 mt-6"
           style={{ zIndex: 10, transition: 'opacity 0.5s ease-in-out' }}
         >
           {!menuOpen && <AudioPlayer />}
           {!menuOpen && <FooterButtons />}
         </motion.div>
 
-        <YandexMetrika />
+        <YandexMetrika enabled={analyticsEnabled} />
       </motion.div>
     </div>
   );
