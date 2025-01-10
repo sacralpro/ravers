@@ -93,7 +93,7 @@ export default function Home() {
             visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeInOut", delay: 1.6 } },
           }}
           className="w-full flex justify-center items-end p-4 mt-6"
-          style={{ zIndex: 10, transition: 'opacity 0.5s ease-in-out' }}
+          style={{ zIndex: 20, transition: 'opacity 0.5s ease-in-out' }}
         >
           {!menuOpen && <AudioPlayer />}
           {!menuOpen && <FooterButtons />}

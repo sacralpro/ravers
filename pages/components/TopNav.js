@@ -188,7 +188,7 @@ const TopNav = ({ setMenuOpen }) => {
               <h1 className="text-white text-[3rem] mb-8">About the Album</h1>
               <p className="text-white w-[60vw] text-center mx-4 leading-[1.75rem]">
                 {typewriterEffect(
-                  "\"RAVERS\" is produced for all lovers of electronic music.\nRecorded in the style of high-quality minimal techno with\nelectronic broken beats and featuring vocals by Sasha and Wiselissa, \nit creates masterpieces masterpieces in the minds and hearts \nof listeners and tearing up dance floors of any size.\n\nThe intro track, 'Timeless,' is a rap vibe, as always exploring \nthe transcendent states bordering on a world where the unthinkable is known..."
+                  "\"RAVERS\" is produced for all lovers of electronic music.\nRecorded in the style of high-quality minimal techno with\nelectronic broken beats and featuring vocals by Sasha and Wiselissa, \nit creates masterpieces in the minds and hearts \nof listeners and tearing up dance floors of any size.\n\nThe intro track, 'Timeless,' is a rap vibe, as always exploring \nthe transcendent states bordering on a world where the unthinkable is known..."
                 )}
               </p>
               <motion.div

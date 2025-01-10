@@ -131,8 +131,12 @@ const AudioPlayer = () => {
       audioEl.currentTime = percentage * audioEl.duration;
       setCurrentTime(audioEl.currentTime);
     }
-  };return (
-  <div ref={containerRef} className="w-full flex flex-col justify-end items-center p-4 absolute z-5 bottom-0 left-0 mt-40"> {/*Added mt-40 for top margin */}
+  };
+  
+  
+  return (
+
+  <div ref={containerRef} className="w-full flex flex-col justify-end items-center p-4 absolute z-5 bottom-0 left-0 mt-20"> {/*Added mt-40 for top margin */}
 
     <div className="flex items-center mb-2">
 
